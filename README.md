@@ -1,8 +1,11 @@
 ### Core Scala
 
+Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/taste-vars-data-types.html)
+
+---  
 * Scala Basics
-    * Variables
-    * Functions
+    * [Variables](src/main/scala/basics/Variables.scala)
+    * [Functions](src/main/scala/basics/Functions.scala)
     * Classes
     * Traits
     * Objects

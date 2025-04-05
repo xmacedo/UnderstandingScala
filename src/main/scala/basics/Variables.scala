@@ -1,7 +1,6 @@
 package basics
 
 class Variables {
-  // https://docs.scala-lang.org/scala3/book/taste-vars-data-types.html
 
   // immutable
   val a = 0
