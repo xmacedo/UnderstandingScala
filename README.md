@@ -1,6 +1,6 @@
 ### Core Scala
 
-Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/taste-vars-data-types.html)
+Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introduction.html)
 
 ---  
 * Scala Basics
