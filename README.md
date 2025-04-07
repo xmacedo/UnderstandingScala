@@ -5,7 +5,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
 ---  
 * Scala Basics
     * [Variables](src/main/scala/basics/Variables.scala)
-    * [Functions](src/main/scala/basics/Functions.scala)
+    * [Functions](src/main/scala/basics/functions/README.md)
     * Classes
     * Traits
     * Objects
