@@ -1,12 +1,13 @@
-package basics;
+package basics
 
-public class Classes {
-    //https://docs.scala-lang.org/scala3/book/domain-modeling-oop.html#classes
+class Classes {
+  //https://docs.scala-lang.org/scala3/book/domain-modeling-oop.html#classes
 
     //Defining Classes
     //Like traits, classes can extend multiple traits (but only one super class):
 
     class MyService(name: String) extends ComposedService, Showable:
+
     def show = s"$name says $sayHello"
 
     //Subtyping
@@ -23,8 +24,9 @@ public class Classes {
     //Planning for Extension
     //As mentioned before, it is possible to extend another class:
     class Person(name: String)
+
     class SoftwareDeveloper(name: String, favoriteLang: String)
-            extends Person(name)
+      extends Person(name)
 
     //However, since traits are designed as the primary means of decomposition,
     // it is not recommended to extend a class that is defined in one file from another file.
@@ -43,10 +45,12 @@ public class Classes {
     //Like in other languages with support for OOP, traits and classes in Scala can define mutable fields:
 
     class Counter:
+
     // can only be observed by the method `count`
     private var currentCount = 0
 
     def tick(): Unit = currentCount += 1
+
     def count: Int = currentCount
 
     //Every instance of the class Counter has its own private state that can only be observed through the method count,
@@ -69,19 +73,21 @@ public class Classes {
     // a trait with two abstract type members, S (for subjects) and O (for observers):
     trait SubjectObserver:
 
-        type S <: Subject
-        type O <: Observer
+      type S <: Subject
+      type O <: Observer
 
-        trait Subject:
-            self: S =>
-                private var observers: List[O] = List()
-                    def subscribe(obs: O): Unit =
-                        observers = obs :: observers
-                    def publish() =
-                        for obs <- observers do obs.notify(this)
+      trait Subject:
+        self: S =>
+        private var observers: List[O] = List()
 
-        trait Observer:
-            def notify(sub: S): Unit
+        def subscribe(obs: O): Unit =
+          observers = obs :: observers
+
+        def publish() =
+          for obs <- observers do obs.notify(this)
+
+      trait Observer:
+        def notify(sub: S): Unit
 
     //Abstract Type Members
     //The declaration type S <: Subject says that within the trait SubjectObserver we can refer to some unknown
@@ -108,19 +114,21 @@ public class Classes {
     //Implementing the Component
     //We can now implement the above component and define the abstract type members to be concrete types:
     object SensorReader extends SubjectObserver:
-        type S = Sensor
-        type O = Display
+      type S = Sensor
+      type O = Display
 
-        class Sensor(val label: String) extends Subject:
-            private var currentValue = 0.0
-            def value = currentValue
-            def changeValue(v: Double) =
-                currentValue = v
-                publish()
+      class Sensor(val label: String) extends Subject:
+        private var currentValue = 0.0
 
-        class Display extends Observer:
-            def notify(sub: Sensor) =
-                println(s"${sub.label} has value ${sub.value}")
+        def value = currentValue
+
+        def changeValue(v: Double) =
+          currentValue = v
+          publish()
+
+      class Display extends Observer:
+        def notify(sub: Sensor) =
+          println(s"${sub.label} has value ${sub.value}")
 
     //Specifically, we define a singleton object SensorReader that extends SubjectObserver.
     // In the implementation of SensorReader, we say that type S is now defined as type Sensor,
@@ -140,6 +148,7 @@ public class Classes {
 
     //Using the Component
     //Finally, the following code illustrates how to use our SensorReader component:
+
     import SensorReader.*
 
     // setting up a network
@@ -159,5 +168,8 @@ public class Classes {
     // sensor1 has value 2.0
     // sensor1 has value 2.0
     // sensor2 has value 3.0
+
+  }
+
 
 }
