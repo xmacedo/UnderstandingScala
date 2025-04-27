@@ -58,14 +58,38 @@ class PatternMatching {
   val someSms = SMS("12345", "Are you there?")
   val someVoiceRecording = VoiceRecording("Tom", "voicerecording.org/id/123")
 
-  println(showNotification(someSms)) 
+  println(showNotification(someSms))
   // prints You got an SMS from 12345! Message: Are you there?
-  
-  println(showNotification(someVoiceRecording)) 
+
+  println(showNotification(someVoiceRecording))
   // prints You received a Voice Recording from Tom! Click the link to hear it: voicerecording.org/id/123
-  
-  //The function showNotification takes as a parameter the abstract type Notification and matches 
-  // on the type of Notification (i.e. it figures out whether it’s an Email, SMS, or VoiceRecording). 
-  // In the case Email(sender, title, _) the fields sender and title are used in the 
+
+  //The function showNotification takes as a parameter the abstract type Notification and matches
+  // on the type of Notification (i.e. it figures out whether it’s an Email, SMS, or VoiceRecording).
+  // In the case Email(sender, title, _) the fields sender and title are used in the
   // return value but the body field is ignored with _.
+
+  //Matching on string
+
+  //The s-interpolator allows embedding variables in strings and is also useful for pattern matching.
+  val input: String = "Alice is 25 years old"
+
+  input match
+    case s"$name is $age years old" => s"$name's age is $age"
+    case _ => "No match"
+  // Result: "Alice's age is 25"
+
+  //In this example, name and age extract parts of the string based on the pattern.
+  // This is helpful for parsing structured text.
+
+  //We can also use extractor objects for string pattern matching.
+  object Age:
+    def unapply(s: String): Option[Int] = s.toIntOption
+
+  val input: String = "Alice is 25 years old"
+
+  val (name, age) = input match
+    case s"$name is ${Age(age)} years old" => (name, age)
+  // name: String = Alice
+  // age: Int = 25
 }
