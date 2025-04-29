@@ -117,12 +117,32 @@ class PatternMatching {
   // prints You got an SMS from 123-4567! Message: Are you there?
   
   println(showImportantNotification(someVoiceRecording, importantPeopleInfo))
-  //(It's wrong) 
+  //(It's wrong, because its a different method now.) 
   // prints You received a Voice Recording from Tom! Click the link to hear it: voicerecording.org/id/123 
   
   println(showImportantNotification(importantEmail, importantPeopleInfo)) 
   // prints You got an email from special someone!
   
+  println(showImportantNotification(importantSms, importantPeopleInfo))
+  // prints You got an SMS from special someone!
+  
+  //Matching on type only
+  //You can match on the type like so:
 
-  println(showImportantNotification(importantSms, importantPeopleInfo)) // prints You got an SMS from special someone!
+  sealed trait Device
+
+  case class Phone(model: String) extends Device:
+    def screenOff = "Turning screen off"
+
+  case class Computer(model: String) extends Device:
+    def screenSaverOn = "Turning screen saver on..."
+
+
+  def goIdle(device: Device): String = device match
+    case p: Phone => p.screenOff
+    case c: Computer => c.screenSaverOn
+    
+  //def goIdle has a different behavior depending on the type of Device. 
+  // This is useful when the case needs to call a method on the pattern. 
+  // It is a convention to use the first letter of the type as the case identifier (p and c in this case).
 }
