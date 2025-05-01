@@ -12,7 +12,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
     * [Case Classes](src/main/scala/basics/CaseClass.scala)
     * [Case Objects](src/main/scala/basics/CaseObjects.scala)
     * Sealed Traits
-* Pattern Matching
+* [Pattern Matching](src/main/scala/PatternMatching.scala)
 * Tuples
 * Generics
 * Monads
