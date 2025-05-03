@@ -19,4 +19,28 @@ class Tuples {
   println(ingredient(0)) // Sugar
   println(ingredient(1)) // 25
   
+  //Pattern matching on tuples
+  //A tuple can also be taken apart using pattern matching:
+  val (name, quantity) = ingredient
+  println(name) // Sugar
+  println(quantity) // 25
+  
+  //Here name’s inferred type is String and quantity’s inferred type is Int.
+  
+  //Here is another example of pattern-matching a tuple:
+  val planets =
+    List(("Mercury", 57.9), ("Venus", 108.2), ("Earth", 149.6),
+      ("Mars", 227.9), ("Jupiter", 778.3))
+  planets.foreach {
+    case ("Earth", distance) =>
+      println(s"Our planet is $distance million kilometers from the sun")
+    case _ =>
+  }
+  //Or, in a for comprehension:
+  val numPairs = List((2, 5), (3, -7), (20, 56))
+  for (a, b) <- numPairs do
+    println(a * b)
+    
+  
+  
 }
