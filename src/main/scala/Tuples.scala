@@ -13,5 +13,10 @@ class Tuples {
   //This creates a tuple containing a String element and an Int element.
   //The inferred type of ingredient is (String, Int).
 
-  //
+  //Accessing the elements
+  //One way of accessing tuple elements is their positions. 
+  // The individual elements are accessed with tuple(0), tuple(1), and so forth.
+  println(ingredient(0)) // Sugar
+  println(ingredient(1)) // 25
+  
 }
