@@ -41,6 +41,10 @@ class Tuples {
   for (a, b) <- numPairs do
     println(a * b)
     
-  
+  //Tuples and case classes
+  //Users may sometimes find it hard to choose between tuples and case classes. 
+  // Case classes have named elements. The names can improve the readability of some kinds of code. 
+  // In the planet example above, we might define case class 
+  // Planet(name: String, distance: Double) rather than using tuples.
   
 }
