@@ -14,7 +14,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
     * Sealed Traits
 * [Pattern Matching](src/main/scala/PatternMatching.scala)
 * [Tuples](src/main/scala/Tuples.scala)
-* Generics
+* [Generics](src/main/scala/Generics.scala)
 * Monads
     * Option
     * Try
