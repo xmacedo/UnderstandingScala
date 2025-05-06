@@ -22,7 +22,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
     * Future
     * List
     * Map
-* For Comprehensions
+* [For Comprehensions](src/main/scala/ForComprehensions.scala)
 * Mutable and Immutable Collections
 * Scala Test
 * Scala Check
