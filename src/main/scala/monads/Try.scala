@@ -1,7 +1,7 @@
 package monads
 
 class Try {
-  //
+  //https://www.scala-lang.org/api/3.x/scala/util/Try.html
   //The Try type represents a computation that may fail during evaluation by raising an exception. 
   // It holds either a successfully computed value or the exception that was thrown. 
   // This is similar to the scala.util.Either type, but with different semantics.
