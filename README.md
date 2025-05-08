@@ -17,7 +17,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
 * [Generics](src/main/scala/Generics.scala)
 * Monads
     * [Option](src/main/scala/monads/Option.scala)
-    * Try
+    * [Try](src/main/scala/monads/Try.scala)
     * Either
     * Future
     * List
