@@ -16,7 +16,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
 * [Tuples](src/main/scala/Tuples.scala)
 * [Generics](src/main/scala/Generics.scala)
 * Monads
-    * Option
+    * [Option](src/main/scala/monads/Option.scala)
     * Try
     * Either
     * Future
@@ -33,7 +33,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
 * Tail Recursion
 * Reflection
 * Implicits
-* Advanced Monads
+* Advanced monads.Monads
     * IO
     * State
     * Reader
