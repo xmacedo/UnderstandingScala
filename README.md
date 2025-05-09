@@ -18,7 +18,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
 * Monads
     * [Option](src/main/scala/monads/Option.scala)
     * [Try](src/main/scala/monads/Try.scala)
-    * Either
+    * [Either](src/main/scala/monads/Either.scala)
     * Future
     * List
     * Map
