@@ -19,7 +19,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
     * [Option](src/main/scala/monads/Option.scala)
     * [Try](src/main/scala/monads/Try.scala)
     * [Either](src/main/scala/monads/Either.scala)
-    * Future
+    * [Future](src/main/scala/monads/Future.scala)
     * List
     * Map
 * [For Comprehensions](src/main/scala/ForComprehensions.scala)

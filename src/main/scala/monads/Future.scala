@@ -1,0 +1,5 @@
+package monads
+
+class Future {
+
+}
