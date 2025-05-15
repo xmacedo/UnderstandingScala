@@ -20,7 +20,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
     * [Try](src/main/scala/monads/Try.scala)
     * [Either](src/main/scala/monads/Either.scala)
     * [Future](src/main/scala/monads/Future.scala)
-    * List
+    * [List](src/main/scala/monads/Lists.scala)
     * Map
 * [For Comprehensions](src/main/scala/ForComprehensions.scala)
 * Mutable and Immutable Collections

@@ -27,4 +27,9 @@ class Lists {
   
   //https://docs.scala-lang.org/overviews/collections-2.13/concrete-immutable-collection-classes.html#lists
 
+  //A List is a finite immutable sequence. 
+  // They provide constant-time access to their first element as well as the rest of the list, 
+  // and they have a constant-time cons operation for adding a new element to the front of the list. 
+  // Many other operations take linear time.
+  
 }
