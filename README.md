@@ -21,9 +21,9 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
     * [Either](src/main/scala/monads/Either.scala)
     * [Future](src/main/scala/monads/Future.scala)
     * [List](src/main/scala/monads/Lists.scala)
-    * Map
+    * [Map](src/main/scala/monads/Maps.scala)
 * [For Comprehensions](src/main/scala/ForComprehensions.scala)
-* Mutable and Immutable Collections
+* [Mutable and Immutable Collections](src/main/scala/MutableAndImmutableCollections.scala)
 * Scala Test
 * Scala Check
 * Higher Order Functions
