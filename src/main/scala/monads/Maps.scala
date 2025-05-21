@@ -28,4 +28,53 @@ class Maps {
   
   // - Transformations filterKeys and mapValues, which produce a new map by filtering and transforming bindings 
   // of an existing map.
+
+  //The addition and removal operations for maps mirror those for sets. A mutable map m is usually updated in place,
+  // using the two variants m(key) = value or m += (key -> value). There is also the variant m.put(key, value),
+  // which returns an Option value that contains the value previously associated with key, or None if the key
+  // did not exist in the map before.
+
+  //The getOrElseUpdate is useful for accessing maps that act as caches.
+  // Say you have an expensive computation triggered by invoking a function f:
+  //scala >
+
+  def f(x: String): String =
+    println("taking my time.");
+    Thread.sleep(100)
+    x.reverse
+
+  def f(x: String): String
+
+  //Assume further that f has no side-effects, so invoking it again with the same argument will
+  // always yield the same result. In that case you could save time by storing previously computed bindings
+  // of argument and results of f in a map and only computing the result of f if a result of an argument
+  // was not found there. One could say the map is a cache for the computations of the function f.
+
+  val cache = collection.mutable.Map[String, String]()
+  cache: scala.collection.mutable.Map[String, String]= Map()
+
+  //You can now create a more efficient caching version of the f function:
+  def cachedF(s: String): String = cache.getOrElseUpdate(s, f(s))
+
+  cachedF: (s: String)
+  String
+  //scala >
+    cachedF("abc")
+  taking my time.
+    res3: String = cba
+  scala > cachedF("abc")
+  res4: String = cba
+
+  //Note that the second argument to getOrElseUpdate is by-name, so the computation of f("abc") above
+  // is only performed if getOrElseUpdate requires the value of its second argument,
+  // which is precisely if its first argument is not found in the cache map.
+  // You could also have implemented cachedF directly, using just basic map operations,
+  // but it would take more code to do so:
+  def cachedF (arg: String): String  = cache.get(arg) match
+    case Some(result) => result
+    case None =>
+      val result = f(x)
+      cache(arg) = result
+      result
+
 }
