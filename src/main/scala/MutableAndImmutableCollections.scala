@@ -8,4 +8,12 @@ class MutableAndImmutableCollections {
   // You still have operations that simulate additions, removals, or updates, but those operations will in 
   // each case return a new collection and leave the old collection unchanged.
   
+  //All collection classes are found in the package scala.collection or one of its sub-packages mutable and immutable. 
+  // Most collection classes needed by client code exist in three variants, which are located in packages 
+  // scala.collection, scala.collection.immutable, and scala.collection.mutable, respectively.
+  // Each variant has different characteristics with respect to mutability.
+  
+  //A collection in package scala.collection.immutable is guaranteed to be immutable for everyone. 
+  // Such a collection will never change after it is created. Therefore, you can rely on the fact that accessing the 
+  // same collection value repeatedly at different points in time will always yield a collection with the same elements.
 }
