@@ -16,4 +16,9 @@ class MutableAndImmutableCollections {
   //A collection in package scala.collection.immutable is guaranteed to be immutable for everyone. 
   // Such a collection will never change after it is created. Therefore, you can rely on the fact that accessing the 
   // same collection value repeatedly at different points in time will always yield a collection with the same elements.
+  
+  //A collection in package scala.collection.mutable is known to have some operations that change the collection in place. 
+  // So dealing with a mutable collection means you need to understand which code changes which collection when.
+  
+  
 }
