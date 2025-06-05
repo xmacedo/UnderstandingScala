@@ -27,6 +27,12 @@ class MutableAndImmutableCollections {
   // the whole collection, the immutable collections in package scala.collection.immutable typically 
   // add operations for adding or removing single values, and the mutable collections in package 
   // scala.collection.mutable typically add some side-effecting modification operations to the root interface.
+  
+  //Another difference between root collections and immutable collections is that clients of an immutable collection 
+  // have a guarantee that nobody can mutate the collection, whereas clients of a root collection only 
+  // promise not to change the collection themselves. 
+  // Even though the static type of such a collection provides no operations for modifying the collection, 
+  // it might still be possible that the run-time type is a mutable collection which can be changed by other clients.
 
 
 }
