@@ -34,5 +34,54 @@ class MutableAndImmutableCollections {
   // Even though the static type of such a collection provides no operations for modifying the collection, 
   // it might still be possible that the run-time type is a mutable collection which can be changed by other clients.
 
+  //By default, Scala always picks immutable collections. For instance, if you just write Set without any prefix 
+  // or without having imported Set from somewhere, you get an immutable set, and if you write Iterable you get an 
+  // immutable iterable collection, because these are the default bindings imported from the scala package. 
+  // To get the mutable default versions, you need to write explicitly collection.mutable.Set, 
+  // or collection.mutable.Iterable.
+  
+  //A useful convention if you want to use both mutable and immutable versions of collections is to import 
+  // just the package collection.mutable.
 
+  import scala.collection.mutable
+  
+  //Then a word like Set without a prefix still refers to an immutable collection, 
+  // whereas mutable.Set refers to the mutable counterpart.
+  
+  //The last package in the collection hierarchy is scala.collection.generic. 
+  // This package contains building blocks for abstracting over concrete collections.
+  
+  //For convenience and backwards compatibility some important types have aliases in the scala package, so you can 
+  // use them by their simple names without needing an import. An example is the List type, 
+  // which can be accessed alternatively as
+  
+  scala.collection.immutable.List // that's where it is defined
+  scala.List // via the alias in the scala package
+  List // because scala._
+  // is always automatically imported
+  
+  //Other types aliased are Iterable, Seq, IndexedSeq, Iterator, LazyList, Vector, StringBuilder, and Range.
+  
+  //The following figure shows all collections in package scala.collection. 
+  // These are all high-level abstract classes or traits, which generally have mutable as well as 
+  // immutable implementations.
+  
+  //The following figure shows all collections in package scala.collection.immutable.
+  
+  //And the following figure shows all collections in package scala.collection.mutable.
+  
+  //# An Overview of the Collections API
+  
+  //The most important collection classes are shown in the figures above. There is quite a bit of commonality 
+  // shared by all these classes. For instance, every kind of collection can be created by the same uniform syntax, 
+  // writing the collection class name followed by its elements:
+  Iterable("x", "y", "z")
+  Map("x" -> 24, "y" -> 25, "z" -> 26)
+  Set(Color.red, Color.green, Color.blue)
+  SortedSet("hello", "world")
+  Buffer(x, y, z)
+  IndexedSeq(1.0, 2.0)
+  LinearSeq(a, b, c)
+  
+  
 }
