@@ -1,4 +1,5 @@
 ### Using sbt with ScalaTest
+[Link reference](https://docs.scala-lang.org/scala3/book/tools-sbt.html#using-sbt-with-scalatest)
 - [ScalaTest](https://www.scalatest.org/) is one of the main testing libraries for Scala projects. In this section you’ll see the steps necessary to create a Scala/sbt project that uses ScalaTest.
 
 1) Create the project directory structure
@@ -46,3 +47,11 @@ object MathUtils:
 ```
 
 That method provides a simple way to demonstrate ScalaTest.
+
+4. Create your first ScalaTest tests
+- ScalaTest is very flexible, and offers several different ways to write tests. A simple way to get started is to write tests using the ScalaTest AnyFunSuite. To get started, create a directory named math under the src/test/scala directory:
+
+```scala
+$ mkdir src/test/scala/math
+            ----
+```
