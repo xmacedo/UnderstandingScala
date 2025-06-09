@@ -37,7 +37,7 @@ The first three lines of this file are essentially the same as the first example
 $ mkdir src/main/scala/math
             ---
 ```
-- Then, inside that directory, create a file named [MathUtils.scala](ScalaTest.scala) with these contents:
+- Then, inside that directory, create a file named [MathUtils.scala](math/MathUtils.scala) with these contents:
 
 ```
 package math
@@ -55,3 +55,5 @@ That method provides a simple way to demonstrate ScalaTest.
 $ mkdir src/test/scala/math
             ----
 ```
+
+- Next, create a file named MathUtilsTests.scala in that directory with the following contents:
