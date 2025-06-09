@@ -55,13 +55,13 @@ class PatternMatching {
       case VoiceRecording(name, link) =>
         s"You received a Voice Recording from $name! Click the link to hear it: $link"
 
-  val someSms = SMS("12345", "Are you there?")
-  val someVoiceRecording = VoiceRecording("Tom", "voicerecording.org/id/123")
+  val someSms1 = SMS("12345", "Are you there?")
+  val someVoiceRecording1 = VoiceRecording("Tom", "voicerecording.org/id/123")
 
-  println(showNotification(someSms))
+  println(showNotification(someSms1))
   // prints You got an SMS from 12345! Message: Are you there?
 
-  println(showNotification(someVoiceRecording))
+  println(showNotification(someVoiceRecording1))
   // prints You received a Voice Recording from Tom! Click the link to hear it: voicerecording.org/id/123
 
   //The function showNotification takes as a parameter the abstract type Notification and matches
@@ -72,9 +72,9 @@ class PatternMatching {
   //Matching on string
 
   //The s-interpolator allows embedding variables in strings and is also useful for pattern matching.
-  val input: String = "Alice is 25 years old"
+  val input2: String = "Alice is 25 years old"
 
-  input match
+  input2 match
     case s"$name is $age years old" => s"$name's age is $age"
     case _ => "No match"
   // Result: "Alice's age is 25"

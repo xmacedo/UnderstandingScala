@@ -1,3 +1,6 @@
+import java.awt.Color
+import scala.collection.{LinearSeq, SortedSet, mutable}
+
 class MutableAndImmutableCollections {
   //https://docs.scala-lang.org/overviews/collections-2.13/overview.html
   //Mutable and Immutable Collections
@@ -79,13 +82,13 @@ class MutableAndImmutableCollections {
   Map("x" -> 24, "y" -> 25, "z" -> 26)
   Set(Color.red, Color.green, Color.blue)
   SortedSet("hello", "world")
-  Buffer(x, y, z)
+  //mutable.Buffer(x, y, z)
   IndexedSeq(1.0, 2.0)
-  LinearSeq(a, b, c)
+  //LinearSeq(a, b, c)
 
   //The same principle also applies for specific collection implementations, such as:
   List(1, 2, 3)
-  HashMap("x" -> 24, "y" -> 25, "z" -> 26)
+  mutable.HashMap("x" -> 24, "y" -> 25, "z" -> 26)
 
   //All these collections get displayed with toString in the same way they are written above.
 
@@ -94,10 +97,10 @@ class MutableAndImmutableCollections {
   // But this result type is overridden in subclasses. For instance, calling map on a List yields again a List,
   // calling it on a Set yields again a Set and so on.
 
-  scala > List(1, 2, 3) map (_ + 1)
-  res0: List[Int] = List(2, 3, 4)
-  scala > Set(1, 2, 3) map (_ * 2)
-  res0: Set[Int] = Set(2, 4, 6)
+  //scala > List(1, 2, 3) map (_ + 1)
+  //res0: List[Int] = List(2, 3, 4)
+  //scala > Set(1, 2, 3) map (_ * 2)
+  //res0: Set[Int] = Set(2, 4, 6)
 
   //This behavior which is implemented everywhere in the collections libraries is called the uniform return
   // type principle.

@@ -47,10 +47,10 @@ class ForComprehensions {
   //You can omit yield in a comprehension. In that case, comprehension will return Unit. 
   // This can be useful in case you need to perform side-effects. 
   // Here’s a program equivalent to the previous one, but without using yield:
-  def foo(n: Int, v: Int) =
+  def foo1(n: Int, v: Int) =
     for i <- 0 until n
         j <- 0 until n if i + j == v
     do println(s"($i, $j)")
 
-  foo(10, 10)
+  foo1(10, 10)
 }
