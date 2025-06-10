@@ -56,4 +56,36 @@ $ mkdir src/test/scala/math
             ----
 ```
 
-- Next, create a file named MathUtilsTests.scala in that directory with the following contents:
+- Next, create a file named [MathUtilsTests.scala](../../test/scala/math/MathUtilsTests.scala) in that directory with the following contents:
+
+This code demonstrates the ScalaTest **_AnyFunSuite_** approach. A few important points:
+- Your test class should extend **_AnyFunSuite_**
+- You create tests as shown, by giving each _**test**_ a unique name
+- At the end of each test you should call **_assert_** to test that a condition has been satisfied
+- When you know you want to write a test, but you don’t want to write it right now, create the test as “pending,” with the syntax shown
+
+Using ScalaTest like this is similar to JUnit, so if you’re coming to Scala from Java, hopefully this looks similar.
+
+Now you can run these tests with the `sbt test` command. Skipping the first few lines of output, the result looks like this:
+
+```shell
+sbt:HelloScalaTest> test
+
+[info] Compiling 1 Scala source ...
+[info] MathUtilsTests:
+[info] - 'double' should handle 0
+[info] - 'double' should handle 1
+[info] - test with Int.MaxValue (pending)
+[info] Total number of tests run: 2
+[info] Suites: completed 1, aborted 0
+[info] Tests: succeeded 2, failed 0, canceled 0, ignored 0, pending 1
+[info] All tests passed.
+[success] Total time: 1 s
+```
+
+If everything works well, you’ll see output that looks like that. Welcome to the world of testing Scala applications with sbt and ScalaTest.
+
+### Support for many types of tests
+This example demonstrates a style of testing that’s similar to xUnit Test-Driven Development (TDD) style testing, with a few benefits of the Behavior-Driven Development (BDD) style.
+
+As mentioned, _**ScalaTest**_ is flexible and you can also write tests using other styles, such as a style similar to Ruby’s RSpec. You can also use mock objects, property-based testing, and use ScalaTest to test Scala.js code.
