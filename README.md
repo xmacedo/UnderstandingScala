@@ -24,7 +24,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
     * [Map](src/main/scala/monads/Maps.scala)
 * [For Comprehensions](src/main/scala/ForComprehensions.scala)
 * [Mutable and Immutable Collections](src/main/scala/MutableAndImmutableCollections.scala)
-* Scala Test
+* [Scala Test](src/main/scala/ScalaTest.md)
 * Scala Check
 * Higher Order Functions
 * Currying
