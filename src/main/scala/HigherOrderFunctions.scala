@@ -8,5 +8,17 @@ class HigherOrderFunctions {
   // The terminology can get a bit confusing at this point, and we use the phrase “higher order function” 
   // for both methods and functions that take functions as parameters or that return a function.
   
-
+  //In a pure Object Oriented world, a good practice is to avoid exposing methods parameterised with functions 
+  // that might leak an object’s internal state. 
+  // Leaking internal state might break the invariants of the object itself, thus violating encapsulation.
+  
+  //One of the most common examples is the higher-order function map which is available for collections in Scala.
+  val salaries = Seq(20_000, 70_000, 40_000)
+  val doubleSalary = (x: Int) => x * 2
+  val newSalaries = salaries.map(doubleSalary) // List(40000, 140000, 80000)
+  
+  //doubleSalary is a function which takes a single Int, x, and returns x * 2. 
+  // In general, the tuple on the left of the arrow => is a parameter list and the value of the expression 
+  // on the right is what gets returned. On line 3, the function doubleSalary gets applied to each element 
+  // in the list of salaries.
 }
