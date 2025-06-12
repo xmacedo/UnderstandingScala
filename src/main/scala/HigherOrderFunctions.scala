@@ -32,4 +32,9 @@ class HigherOrderFunctions {
   val salariesC = Seq(20_000, 70_000, 40_000)
   val newSalariesC = salariesC.map(_ * 2)
   
+  //Since the Scala compiler already knows the type of the parameters (a single Int), you just need to provide 
+  // the right side of the function. 
+  // The only caveat is that you need to use _ in place of a parameter name (it was x in the previous example).
+  
+  //Coercing methods into functions
 }
