@@ -21,4 +21,15 @@ class HigherOrderFunctions {
   // In general, the tuple on the left of the arrow => is a parameter list and the value of the expression 
   // on the right is what gets returned. On line 3, the function doubleSalary gets applied to each element 
   // in the list of salaries.
+  
+  //To shrink the code, we could make the function anonymous and pass it directly as an argument to map:
+  val salariesB = Seq(20_000, 70_000, 40_000)
+  val newSalariesB = salariesB.map(x => x * 2) // List(40000, 140000, 80000)
+  
+  //Notice how x is not declared as an Int in the above example. That’s because the compiler can infer the 
+  // type based on the type of function map expects (see Currying). An even more idiomatic way 
+  // to write the same piece of code would be:
+  val salariesC = Seq(20_000, 70_000, 40_000)
+  val newSalariesC = salariesC.map(_ * 2)
+  
 }
