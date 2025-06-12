@@ -26,7 +26,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
 * [Mutable and Immutable Collections](src/main/scala/MutableAndImmutableCollections.scala)
 * [Scala Test](src/main/scala/ScalaTest.md)
 * Scala Check
-* Higher Order Functions
+* [Higher Order Functions](src/main/scala/HigherOrderFunctions.scala)
 * Currying
 * Partial Functions
 * Type Classes
