@@ -49,4 +49,44 @@ class HigherOrderFunctions {
   //Here the method convertCtoF is passed to the higher order function map. 
   // This is possible because the compiler coerces convertCtoF to the function x => convertCtoF(x) 
   // (note: x will be a generated name which is guaranteed to be unique within its scope).
+    
+  //Functions that accept functions
+  //One reason to use higher-order functions is to reduce redundant code. 
+  // Let’s say you wanted some methods that could raise someone’s salaries by various factors. 
+  // Without creating a higher-order function, it might look something like this:
+
+  object SalaryRaiser:
+
+    def smallPromotion(salaries: List[Double]): List[Double] =
+      salaries.map(salary => salary * 1.1)
+
+    def greatPromotion(salaries: List[Double]): List[Double] =
+      salaries.map(salary => salary * Math.log(salary))
+
+    def hugePromotion(salaries: List[Double]): List[Double] =
+      salaries.map(salary => salary * salary)
+      
+  //Notice how each of the three methods vary only by the multiplication factor. 
+  // To simplify, you can extract the repeated code into a higher-order function like so:
+  object SalaryRaiserB:
+
+    private def promotion(salaries: List[Double], promotionFunction: Double => Double): List[Double] =
+      salaries.map(promotionFunction)
+
+    def smallPromotion(salaries: List[Double]): List[Double] =
+      promotion(salaries, salary => salary * 1.1)
+
+    def greatPromotion(salaries: List[Double]): List[Double] =
+      promotion(salaries, salary => salary * Math.log(salary))
+
+    def hugePromotion(salaries: List[Double]): List[Double] =
+      promotion(salaries, salary => salary * salary)
+      
+  //The new method, promotion, takes the salaries plus a function of type 
+  // Double => Double (i.e. a function that takes a Double and returns a Double) and returns the product.
+  
+  //Methods and functions usually express behaviours or data transformations. 
+  // Therefore, having functions that compose based on other functions can allow us to build more generic mechanisms. 
+  // Such generic operations avoid completely locking down their behaviour in order to give clients a way 
+  // to control or further customize parts of those operations.
 }
