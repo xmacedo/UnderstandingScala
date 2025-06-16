@@ -29,7 +29,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
 * [Higher Order Functions](src/main/scala/HigherOrderFunctions.scala)
 * Currying
 * Partial Functions
-* Type Classes
+* [Type Classes](src/main/scala/TypeClasses.scala)
 * Tail Recursion
 * Reflection
 * Implicits
