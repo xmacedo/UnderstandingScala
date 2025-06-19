@@ -28,7 +28,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
 * Scala Check
 * [Higher Order Functions](src/main/scala/HigherOrderFunctions.scala)
 * Currying
-* Partial Functions
+* [Partial Functions](src/main/scala/PartialFunctions.scala)
 * [Type Classes](src/main/scala/TypeClasses.scala)
 * Tail Recursion
 * Reflection
