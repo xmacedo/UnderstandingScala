@@ -31,7 +31,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
 * [Partial Functions](src/main/scala/PartialFunctions.scala)
 * [Type Classes](src/main/scala/TypeClasses.scala)
 * Tail Recursion
-* Reflection
+* [Reflection](src/main/scala/Reflection.scala)
 * Implicits
 * Advanced monads.Monads
     * IO
