@@ -27,7 +27,34 @@ class Reflection {
   
   //How to navigate the API
   
+  //The full API can be found in the API documentation for scala.quoted.Quotes.reflectModule. 
+  // Unfortunately, at this stage, this automatically-generated documentation is not very easy to navigate.
+  
+  //The most important element on the page is the hierarchy tree which provides a synthetic overview 
+  // of the subtyping relationships of the types in the API. For each type Foo in the tree:
+  
+  // - the trait FooMethods contains the methods available on the type Foo
+  // - the trait FooModule contains the static methods available on the object Foo. Most notably, 
+  // constructors (apply/copy) and the unapply method which provides the extractor(s) required 
+  // for pattern matching are found here
+  // - For all types Upper such that Foo <: Upper, the methods defined in UpperMethods are also available on Foo
+  
+  //For example, TypeBounds, a subtype of TypeRepr, represents a type tree of the form T >: L <: U: a type T which is 
+  // a super type of L and a subtype of U. In TypeBoundsMethods, you will find the methods low and hi, 
+  // which allow you to access the representations of L and U. In TypeBoundsModule, you will find the unapply method,
+  // which allows you to write:
 
+  def f(tpe: TypeRepr) =
+    tpe match
+      case TypeBounds(l, u) =>
+  
+  //Because TypeBounds <: TypeRepr, all the methods defined in TypeReprMethods are available on TypeBounds values:
+  def f(tpe: TypeRepr) =
+    tpe match
+      case tpe: TypeBounds =>
+        val low = tpe.low
+        val hi = tpe.hi
+  
   
   //Docs
   //https://docs.scala-lang.org/scala3/reference/metaprogramming/reflection.html
