@@ -55,6 +55,22 @@ class Reflection {
         val low = tpe.low
         val hi = tpe.hi
   
+  //Relation with Expr/Type
+  //Expr and Term
+  //Expressions (Expr[T]) can be seen as wrappers around a Term, where T is the statically-known type of the term. 
+  // Below, we use the extension method asTerm to transform an expression into a term. This extension method is only 
+  // available after importing quotes.reflect.asTerm. Then we use asExprOf[Int] to transform the term back into Expr[Int].
+  // This operation will fail if the term does not have the provided type (in this case, Int) or if the term 
+  // is not a valid expression. For example, an Ident(fn) is an invalid term if the method fn takes type parameters,
+  // in which case we would need an Apply(Ident(fn), args).
+
+  def g[T: Type](using Quotes) =
+    import quotes.reflect.*
+    val tpe: TypeRepr = TypeRepr.of[T]
+    tpe.asType match
+      case '[t] => '{ val x: t = ${ . . . } }
+  
+  
   
   //Docs
   //https://docs.scala-lang.org/scala3/reference/metaprogramming/reflection.html
