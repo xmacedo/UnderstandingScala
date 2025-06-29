@@ -74,6 +74,17 @@ class Reflection {
   //The APIs of Term and TypeRepr are relatively closed in the sense that methods produce and accept values whose types
   // are defined in the API. However, you might notice the presence of Symbols which identify definitions.
 
+  //Both Terms and TypeReprs (and therefore Exprs and Types) have an associated symbol. Symbols make it possible to 
+  // compare two definitions using == to know if they are the same. In addition, Symbol exposes and is used 
+  // by many useful methods. For example:
+
+  // - declaredFields and declaredMethods allow you to iterate on the fields and members defined inside a symbol
+  // - flags allows you to check multiple properties of a symbol
+  // - companionClass and companionModule provide a way to jump to and from the companion object/class
+  // - TypeRepr.baseClasses returns the list of symbols of classes extended by a type
+  // - Symbol.pos gives you access to the position where the symbol is defined, the source code of the definition, 
+  // and even the filename where the symbol is defined
+  // - many others that you can find in SymbolMethods
 
   
   
