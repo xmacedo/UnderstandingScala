@@ -69,6 +69,12 @@ class Reflection {
     val tpe: TypeRepr = TypeRepr.of[T]
     tpe.asType match
       case '[t] => '{ val x: t = ${ . . . } }
+
+  //Symbols
+  //The APIs of Term and TypeRepr are relatively closed in the sense that methods produce and accept values whose types
+  // are defined in the API. However, you might notice the presence of Symbols which identify definitions.
+
+
   
   
   
