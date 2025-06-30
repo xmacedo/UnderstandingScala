@@ -86,7 +86,19 @@ class Reflection {
   // and even the filename where the symbol is defined
   // - many others that you can find in SymbolMethods
 
+  //To Symbol and back
+  //Consider an instance of the type TypeRepr named val tpe: TypeRepr = .... Then:
   
+  //- tpe.typeSymbol returns the symbol of the type represented by TypeRepr. The recommended way to obtain a Symbol 
+  // given a Type[T] is TypeRepr.of[T].typeSymbol
+  //- For a singleton type, tpe.termSymbol returns the symbol of the underlying object or value
+  //- tpe.memberType(symbol) returns the TypeRepr of the provided symbol
+  //- On objects t: Tree, t.symbol returns the symbol associated with a tree. Given that Term <: Tree, Expr.asTerm.symbol 
+  // is the best way to obtain the symbol associated with an Expr[T]
+  //- On objects sym: Symbol, sym.tree returns the Tree associated to the symbol. Be careful when using this method 
+  // as the tree for a symbol might not be defined. Read more on the best practices page
+      
+      
   
   
   //Docs
