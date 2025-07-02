@@ -98,8 +98,37 @@ class Reflection {
   //- On objects sym: Symbol, sym.tree returns the Tree associated to the symbol. Be careful when using this method 
   // as the tree for a symbol might not be defined. Read more on the best practices page
       
-      
+  //Macro API design
+  //It will often be useful to create helper methods or extractors that perform some common logic of your macros.
+  //
+  //The simplest methods will be those that only mention Expr, Type, and Quotes in their signature. 
+  // Internally, they may use reflection, but this will not be seen at the use site of the method.
+  def f(x: Expr[Int])(using Quotes): Expr[Int] =
+    import quotes.reflect.*
   
+  //In some cases, it may be inevitable that some methods will expect or return Trees or other types in quotes.reflect. 
+  // For these cases, the best practice is to follow the following method signature examples:
+  
+  //A method that takes a quotes.reflect.Term parameter
+  def f(using Quotes)(term: quotes.reflect.Term): String =
+    import quotes.reflect.*
+
+  //An extension method for a quotes.reflect.Term returning a quotes.reflect.Tree
+  extension (using Quotes)(term: quotes.reflect.Term)
+    def g: quotes.reflect.Tree =...
+  
+  //An extractor that matches on quotes.reflect.Terms
+    object MyExtractor:
+    def unapply(using Quotes)(x: quotes.reflect.Term) =
+    ...
+    Some (y)
+    
+  //Avoid saving the Quotes context in a field. Quotes in fields inevitably make its use harder by causing errors 
+  // involving Quotes with different paths.
+  
+  //Usually, these patterns have been seen in code that uses the Scala 2 ways to define extension methods or contextual
+  // unapplies. Now that we have given parameters that can be added before other parameters, all these old workarounds 
+  // are not needed anymore. The new abstractions make it simpler both at the definition site and at the use site.
   
   //Docs
   //https://docs.scala-lang.org/scala3/reference/metaprogramming/reflection.html
