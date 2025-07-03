@@ -130,6 +130,17 @@ class Reflection {
   // unapplies. Now that we have given parameters that can be added before other parameters, all these old workarounds 
   // are not needed anymore. The new abstractions make it simpler both at the definition site and at the use site.
   
+  //Debugging
+  //Runtime checks
+  //Expressions (Expr[T]) can be seen as wrappers around a Term, where T is the statically-known type of the term. 
+  // Hence, these checks will be done at runtime (i.e. compile-time when the macro expands).
+  
+  //It is recommended to enable the -Xcheck-macros flag while developing macros or on the tests for the macro. 
+  // This flag will enable extra runtime checks that will try to find ill-formed trees or types as soon as they are created.
+  
+  //There is also the -Ycheck:all flag that checks all compiler invariants for tree well-formedness. 
+  // These checks will usually fail with an assertion error.
+  
   //Docs
   //https://docs.scala-lang.org/scala3/reference/metaprogramming/reflection.html
 }
