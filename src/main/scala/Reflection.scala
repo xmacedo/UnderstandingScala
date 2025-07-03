@@ -141,6 +141,34 @@ class Reflection {
   //There is also the -Ycheck:all flag that checks all compiler invariants for tree well-formedness. 
   // These checks will usually fail with an assertion error.
   
+  //Printing the trees
+  //The toString methods on types in the quotes.reflect package are not great for debugging as they show the internal 
+  // representation rather than the quotes.reflect representation. In many cases these are similar,
+  // but they may sometimes lead the debugging process astray, so they shouldn’t be relied on.
+  
+  //Instead, quotes.reflect.Printers provides a set of useful printers for debugging. Notably the TreeStructure, 
+  // TypeReprStructure, and ConstantStructure classes can be quite useful. These will print the tree structure following 
+  // loosely the extractors that would be needed to match it.
+
+  val tree: Tree =...
+    println (tree.show (using Printer.TreeStructure) )
+    
+  //One of the most useful places where this can be added is at the end of a pattern match on a Tree.
+  tree match
+    case Ident (_) =>
+    case Select (_, _) =>
+
+    case _ =>
+      throw new MatchError(tree.show(using Printer.TreeStructure))
+  
+  //This way, if a case is missed the error will report a familiar structure that can be copy-pasted to start fixing the issue.
+  
+  //You can make this printer the default if desired:
+
+  import quotes.reflect.*
+  given Printer[Tree] = Printer.TreeStructure
+  println(tree.show)
+  
   //Docs
   //https://docs.scala-lang.org/scala3/reference/metaprogramming/reflection.html
 }
