@@ -11,7 +11,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
     * [Objects](src/main/scala/basics/Objects.scala)
     * [Case Classes](src/main/scala/basics/CaseClass.scala)
     * [Case Objects](src/main/scala/basics/CaseObjects.scala)
-    * Sealed Traits
+    * [Sealed Traits](src/main/scala/basics/SealedTraits.scala)
 * [Pattern Matching](src/main/scala/PatternMatching.scala)
 * [Tuples](src/main/scala/Tuples.scala)
 * [Generics](src/main/scala/Generics.scala)
