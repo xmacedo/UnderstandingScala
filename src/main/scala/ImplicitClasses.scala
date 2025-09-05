@@ -13,5 +13,30 @@ class ImplicitClasses {
   
   //Implicit classes were proposed in SIP-13. (https://docs.scala-lang.org/sips/implicit-classes.html)
   
+  //Usage
+  //To create an implicit class, simply place the implicit keyword in front of an appropriate class. Here’s an example:
+  object Helpers {
+    implicit class IntWithTimes(x: Int) {
+      def times[A](f: => A): Unit = {
+        def loop(current: Int): Unit =
+          if (current > 0) {
+            f
+            loop(current - 1)
+          }
+
+        loop(x)
+      }
+    }
+  }
+
+  //This example creates the implicit class IntWithTimes. This class wraps an Int value and provides a new method, times. 
+  // To use this class, just import it into scope and call the times method. Here’s an example:
+
+  import Helpers._
+  import Helpers._
+
+  5 times println("HI")
+  
+  //For an implicit class to work, its name must be in scope and unambiguous, like any other implicit value or conversion.
   
 }
