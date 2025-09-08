@@ -38,5 +38,36 @@ class ImplicitClasses {
   5 times println("HI")
   
   //For an implicit class to work, its name must be in scope and unambiguous, like any other implicit value or conversion.
+ 
+  //Restrictions
+  //Implicit classes have the following restrictions:
   
+  //1. They must be defined inside another trait/class/object.
+  object HelpersB {
+    implicit class RichInt(x: Int) // OK!
+  }
+
+  implicit class RichDouble(x: Double) // BAD!
+  
+  //2. They may only take one non-implicit argument in their constructor.
+  implicit class RichDate(date: java.time.LocalDate) // OK!
+  implicit class IndexerB[T](collection: Seq[T], index: Int) // BAD!
+  implicit class IndexerC[T](collection: Seq[T])(implicit index: Index) // OK!
+  
+  //While it’s possible to create an implicit class with more than one non-implicit argument, 
+  // such classes aren’t used during implicit lookup.
+  
+  //3. The implicit def introduced by implicit class must not be ambiguous with respect to other term members.
+  //Note: This means an implicit class cannot be a case class, since the implicit def would be ambiguous with 
+  // the companion apply.
+
+  object Bar
+
+  implicit class Bar(x: Int) // BAD!
+
+  val x = 5
+
+  implicit class x(y: Int) // BAD!
+
+  implicit case class Baz(x: Int) // BAD!
 }
