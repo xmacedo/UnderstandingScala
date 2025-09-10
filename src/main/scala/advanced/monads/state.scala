@@ -41,6 +41,25 @@ class state {
   // result: "Counted to 11"
   
   //Composing State with flatMap / for-comprehension
+  val program: State[Int, (String, String)] = for {
+    msg1 <- increment
+    msg2 <- increment
+  } yield (msg1, msg2)
+
+  val (finalState, (firstMsg, secondMsg)) = program.run(10).value
+  // finalState: 12
+  // firstMsg: "Counted to 11"
+  // secondMsg: "Counted to 12"
+  
+  //Notice how you didn’t have to manually pass the state between steps — flatMap did it for you.
+  
+  //Common use cases
+  
+  //- Random number generators — where you need to keep track of the seed.
+  //- Parsing — maintaining the current position in a string or token stream.
+  //- Configuration / Context passing — similar to the Reader monad but with updatable context.
+  //- Simulations / game engines — tracking and updating game world state in a pure way.
+  
 
 
 }
