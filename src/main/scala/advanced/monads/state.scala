@@ -59,7 +59,31 @@ class state {
   //- Parsing — maintaining the current position in a string or token stream.
   //- Configuration / Context passing — similar to the Reader monad but with updatable context.
   //- Simulations / game engines — tracking and updating game world state in a pure way.
-  
 
+  //State vs IO
+  //- IO encapsulates effects (things that touch the outside world, like console, network, filesystem).
+  //- State encapsulates pure state transitions (no actual side effects, just passing values through functions).
+
+  //Sometimes they’re combined: StateT[F, S, A] is a monad transformer that stacks state handling on top of an effect like IO.
+
+  import cats.data.StateT
+  import cats.effect.IO
+
+  type StatefulIO[S, A] = StateT[IO, S, A]
+
+  // a stateful computation that also does IO
+  val program: StatefulIO[Int, Unit] = for {
+    count <- StateT.get[IO, Int]
+    _ <- StateT.set[IO, Int](count + 1)
+    _ <- StateT.liftF(IO.println(s"Incremented to ${count + 1}"))
+  } yield ()
+
+  //Key takeaways
+  //| Concept            | Meaning                                                        |
+  //| ------------------ | -------------------------------------------------------------- |
+  //| Encapsulates state | Purely passes state without mutable variables                  |
+  //| Monad operations   | `map`, `flatMap`, for-comprehension                            |
+  //| Cats type          | `State[S, A]` and `StateT[F, S, A]` for combining with effects |
+  //| Core principle     | Makes functional state management ergonomic and composable     |
 
 }
