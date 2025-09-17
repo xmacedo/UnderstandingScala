@@ -34,7 +34,7 @@ Link reference: [Docs Scala](https://docs.scala-lang.org/scala3/book/introductio
 * [Reflection](src/main/scala/Reflection.scala)
 * [Implicits classes](src/main/scala/ImplicitClasses.scala)
 * Advanced monads.Monads
-    * IO
+    * [IO](src/main/scala/advanced/monads/IO.scala)
     * [State](src/main/scala/advanced/monads/state.scala)
     * Reader
     * Writer
