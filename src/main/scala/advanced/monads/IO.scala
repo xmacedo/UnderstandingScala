@@ -1,5 +1,8 @@
 package advanced.monads
 
+import scala.io.StdIn.readLine
+import scala.io
+
 class IO {
   //The IO monad is a data type used in functional programming (and provided by Cats Effect in Scala) to represent and
   // control side effects in a pure, referentially transparent way.
@@ -26,5 +29,16 @@ class IO {
   //Provides controlled error handling and resource management.
   
   //Constructors
-  
+  //Pure values
+  IO.pure(42)      // immediately available, no side effects
+
+  //Suspending computations
+  IO.delay(println("Hello")) // effect is delayed until run
+  IO.blocking(readLine()) // safe blocking IO
+
+  //Errors
+  IO.raiseError(new RuntimeException("Boom!"))
+
+
+
 }
