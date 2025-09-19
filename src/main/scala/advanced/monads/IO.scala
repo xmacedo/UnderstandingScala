@@ -38,7 +38,20 @@ class IO {
 
   //Errors
   IO.raiseError(new RuntimeException("Boom!"))
+  
+  //Running IO
+  //Effects are not executed until explicitly run by the runtime.
+  //Typical ways:
+  
+  //- Within IOApp
+  import cats.effect.{IO, IOApp}
 
+  object Main extends IOApp.Simple {
+    val run: IO[Unit] = IO.println("Hello, world!")
+  }
+  
+  //- Unsafe (testing/demo only)
+  IO.println("Hi!").unsafeRunSync()
 
 
 }
