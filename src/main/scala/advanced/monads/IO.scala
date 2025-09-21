@@ -52,6 +52,19 @@ class IO {
   
   //- Unsafe (testing/demo only)
   IO.println("Hi!").unsafeRunSync()
+  
+  //Monad Operations
+  //-map
+  IO(21).map(_ * 2)   // IO(42)
+
+  //flatMap
+  IO(10).flatMap(x => IO(x * 2))  // IO(20)
+
+  //for-comprehensions
+  for {
+    name <- IO.readLine
+    _ <- IO.println(s"Hello, $name!")
+  } yield ()
 
 
 }
