@@ -38,21 +38,21 @@ class IO {
 
   //Errors
   IO.raiseError(new RuntimeException("Boom!"))
-  
+
   //Running IO
   //Effects are not executed until explicitly run by the runtime.
   //Typical ways:
-  
+
   //- Within IOApp
   import cats.effect.{IO, IOApp}
 
   object Main extends IOApp.Simple {
     val run: IO[Unit] = IO.println("Hello, world!")
   }
-  
+
   //- Unsafe (testing/demo only)
   IO.println("Hi!").unsafeRunSync()
-  
+
   //Monad Operations
   //-map
   IO(21).map(_ * 2)   // IO(42)
@@ -65,6 +65,18 @@ class IO {
     name <- IO.readLine
     _ <- IO.println(s"Hello, $name!")
   } yield ()
+
+  //Error Handling
+  //attempt
+  IO.raiseError[Int](new Exception("fail"))
+    .attempt // IO[Either[Throwable, Int]]
+
+  //redeem
+  IO(1 / 0).redeem(
+    err => -1,
+    res => res
+  )
+
 
 
 }
