@@ -77,6 +77,18 @@ class IO {
     res => res
   )
 
+  //Concurrency and Parallelism
+  //Fibers (lightweight threads of execution):
+  for {
+    fiber <- IO.println("Working...").start
+    _ <- fiber.join
+  } yield ()
+
+  //Parallel combinators:
+
+  import cats.syntax.parallel._
+
+  (IO(1), IO(2)).parMapN(_ + _) // IO(3)
 
 
 }
