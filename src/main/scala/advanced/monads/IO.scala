@@ -85,10 +85,14 @@ class IO {
   } yield ()
 
   //Parallel combinators:
-
   import cats.syntax.parallel._
-
   (IO(1), IO(2)).parMapN(_ + _) // IO(3)
 
+  //Resource Safety
+  import cats.effect.{IO, Resource}
+  def fileResource(path: String): Resource[IO, java.io.BufferedReader] =
+    Resource.fromAutoCloseable(IO(scala.io.Source.fromFile(path).bufferedReader()))
+    
+    
 
 }
